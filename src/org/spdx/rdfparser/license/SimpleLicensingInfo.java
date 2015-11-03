@@ -18,6 +18,7 @@ package org.spdx.rdfparser.license;
 
 import java.util.Arrays;
 
+import org.apache.jena.rdf.model.AnonId;
 import org.spdx.rdfparser.IModelContainer;
 import org.spdx.rdfparser.InvalidSPDXAnalysisException;
 import org.spdx.rdfparser.RdfModelHelper;
@@ -25,11 +26,11 @@ import org.spdx.rdfparser.SpdxRdfConstants;
 import org.spdx.rdfparser.model.IRdfModel;
 
 import com.google.common.base.Objects;
-import com.hp.hpl.jena.graph.Node;
-import com.hp.hpl.jena.graph.Triple;
-import com.hp.hpl.jena.rdf.model.Property;
-import com.hp.hpl.jena.rdf.model.Resource;
-import com.hp.hpl.jena.util.iterator.ExtendedIterator;
+import org.apache.jena.graph.Node;
+import org.apache.jena.graph.Triple;
+import org.apache.jena.rdf.model.Property;
+import org.apache.jena.rdf.model.Resource;
+import org.apache.jena.util.iterator.ExtendedIterator;
 
 /**
  * The SimpleLicenseInfo class includes all resources that represent 
@@ -230,7 +231,7 @@ public abstract class SimpleLicensingInfo extends AnyLicenseInfo {
 					if (t.getSubject().isURI()) {
 						return modelContainer.getModel().createResource(t.getSubject().getURI());
 					} else if (t.getSubject().isBlank()) {
-						return modelContainer.getModel().createResource(t.getSubject().getBlankNodeId());
+						return modelContainer.getModel().createResource(new AnonId(t.getSubject().getBlankNodeId()));
 					}
 				}
 			}

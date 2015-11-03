@@ -35,7 +35,7 @@ import org.spdx.rdfparser.model.SpdxPackage;
 import org.spdx.rdfparser.model.UnitTestHelper;
 import org.spdx.rdfparser.model.Relationship.RelationshipType;
 
-import com.hp.hpl.jena.rdf.model.Model;
+import org.apache.jena.rdf.model.Model;
 
 
 /**
@@ -73,7 +73,7 @@ public class TestSpdxDocumentContainer {
 	}
 
 	/**
-	 * Test method for {@link org.spdx.rdfparser.SpdxDocumentContainer#SpdxDocumentContainer(com.hp.hpl.jena.rdf.model.Model)}.
+	 * Test method for {@link org.spdx.rdfparser.SpdxDocumentContainer#SpdxDocumentContainer(org.apache.jena.rdf.model.Model)}.
 	 * @throws InvalidSPDXAnalysisException 
 	 */
 	@Test
